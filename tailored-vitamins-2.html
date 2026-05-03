@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailored Vitamins — Precision Wellness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #FAF8F4;
+    --warm-white: #F5F2EC;
+    --charcoal: #1A1A18;
+    --soft-black: #2C2C28;
+    --gold: #C8A96E;
+    --gold-light: #E8D5A8;
+    --sage: #8A9E82;
+    --muted: #8A8880;
+    --border: rgba(26,26,24,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(250,248,244,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.04em;
+    color: var(--soft-black); text-decoration: none;
+    opacity: 0.75; transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  .nav-cta {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.05em;
+    color: var(--cream); background: var(--charcoal);
+    padding: 10px 24px; border-radius: 100px;
+    text-decoration: none; transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--soft-black); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,169,110,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(138,158,130,0.08) 0%, transparent 60%);
+  }
+
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 9vw, 120px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
+    max-width: 900px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 18px; font-weight: 300; line-height: 1.7;
+    color: var(--muted); max-width: 520px;
+    margin-bottom: 52px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; align-items: center;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    font-size: 15px; font-weight: 500; letter-spacing: 0.03em;
+    color: var(--cream); background: var(--charcoal);
+    padding: 16px 40px; border-radius: 100px;
+    text-decoration: none; transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--soft-black); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(26,26,24,0.2); }
+
+  .btn-secondary {
+    font-size: 15px; font-weight: 400; letter-spacing: 0.03em;
+    color: var(--charcoal);
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+    transition: gap 0.2s;
+  }
+  .btn-secondary:hover { gap: 14px; }
+  .btn-secondary::after { content: '→'; }
+
+  /* CAPSULE VISUAL */
+  .hero-visual {
+    margin-top: 80px;
+    width: 100%; max-width: 700px;
+    height: 280px;
+    position: relative;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .capsule-row {
+    display: flex; justify-content: center; align-items: center; gap: 20px;
+    height: 100%;
+  }
+
+  .capsule {
+    border-radius: 100px;
+    transition: transform 0.4s ease;
+  }
+  .capsule:hover { transform: translateY(-12px) rotate(-3deg); }
+
+  .c1 { width: 70px; height: 200px; background: linear-gradient(160deg, #D4B07A, #C8A96E); box-shadow: 0 20px 60px rgba(200,169,110,0.3); }
+  .c2 { width: 60px; height: 160px; background: linear-gradient(160deg, #A0B498, #8A9E82); box-shadow: 0 20px 60px rgba(138,158,130,0.3); transform: translateY(20px); }
+  .c3 { width: 80px; height: 240px; background: linear-gradient(160deg, #E8D5A8, #D4B07A); box-shadow: 0 20px 60px rgba(200,169,110,0.25); }
+  .c4 { width: 60px; height: 180px; background: linear-gradient(160deg, #C5C0B8, #A8A39B); box-shadow: 0 20px 60px rgba(168,163,155,0.3); transform: translateY(-10px); }
+  .c5 { width: 70px; height: 210px; background: linear-gradient(160deg, #B8C4B0, #8A9E82); box-shadow: 0 20px 60px rgba(138,158,130,0.3); transform: translateY(15px); }
+
+  /* STATS */
+  .stats {
+    display: flex; justify-content: center; gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 0 48px;
+  }
+
+  .stat {
+    flex: 1; max-width: 280px;
+    padding: 52px 40px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    opacity: 0; transform: translateY(24px);
+    transition: all 0.6s ease;
+  }
+  .stat:last-child { border-right: none; }
+  .stat.visible { opacity: 1; transform: translateY(0); }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px; font-weight: 300;
+    color: var(--charcoal); line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .stat-label {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.05em;
+    color: var(--muted); text-transform: uppercase;
+  }
+
+  /* SECTION SHARED */
+  section { padding: 120px 48px; }
+
+  .section-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--charcoal);
+    max-width: 700px;
+    margin-bottom: 24px;
+  }
+
+  .section-body {
+    font-size: 17px; font-weight: 300; line-height: 1.75;
+    color: var(--muted); max-width: 560px;
+  }
+
+  /* HOW IT WORKS */
+  .how {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+  }
+
+  .how .section-title { color: var(--cream); margin: 0 auto 16px; }
+  .how .section-body { color: rgba(250,248,244,0.55); margin: 0 auto 80px; }
+
+  .steps {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1000px; margin: 0 auto;
+  }
+
+  .step {
+    background: rgba(255,255,255,0.04);
+    padding: 56px 40px;
+    text-align: left;
+    position: relative;
+    opacity: 0; transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+  .step.visible { opacity: 1; transform: translateY(0); }
+  .step:hover { background: rgba(255,255,255,0.07); }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px; font-weight: 300;
+    color: rgba(200,169,110,0.2);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+
+  .step-desc {
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: rgba(250,248,244,0.5);
+  }
+
+  /* PRODUCTS */
+  .products { background: var(--warm-white); }
+
+  .products-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 64px;
+  }
+
+  .product-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .product-card {
+    background: var(--cream);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .product-card.visible { opacity: 1; transform: translateY(0); }
+  .product-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(26,26,24,0.1); }
+
+  .product-img {
+    height: 260px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-pill {
+    width: 80px; height: 220px;
+    border-radius: 100px;
+    position: relative; z-index: 1;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover .product-pill { transform: translateY(-10px) rotate(5deg); }
+
+  .pill-immunity { background: linear-gradient(170deg, #E8D5A8 0%, #C8A96E 100%); box-shadow: 0 20px 50px rgba(200,169,110,0.4); }
+  .pill-energy { background: linear-gradient(170deg, #A8C4A0 0%, #6A9E62 100%); box-shadow: 0 20px 50px rgba(106,158,98,0.4); }
+  .pill-calm { background: linear-gradient(170deg, #C0B8D4 0%, #8A7EAA 100%); box-shadow: 0 20px 50px rgba(138,126,170,0.4); }
+
+  .product-bg-immunity { background: linear-gradient(135deg, #FDF5E6, #FAF0D4); }
+  .product-bg-energy   { background: linear-gradient(135deg, #EDF5EA, #DFF0D8); }
+  .product-bg-calm     { background: linear-gradient(135deg, #EDE8F5, #E0D8F0); }
+
+  .product-info { padding: 32px; }
+
+  .product-tag {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+
+  .product-desc {
+    font-size: 14px; font-weight: 300; line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .product-price {
+    font-size: 15px; font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  /* QUIZ CTA */
+  .quiz-cta {
+    background: linear-gradient(135deg, var(--charcoal) 0%, #2E2E20 100%);
+    color: var(--cream);
+    text-align: center;
+    padding: 140px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quiz-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,169,110,0.12), transparent);
+  }
+
+  .quiz-cta .section-title {
+    color: var(--cream);
+    margin: 0 auto 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .quiz-cta .section-body {
+    margin: 0 auto 52px;
+    text-align: center;
+    color: rgba(250,248,244,0.55);
+    position: relative;
+  }
+
+  .quiz-cta .btn-primary {
+    background: var(--gold);
+    color: var(--charcoal);
+    position: relative;
+  }
+  .quiz-cta .btn-primary:hover { background: var(--gold-light); }
+
+  /* INGREDIENTS */
+  .ingredients { background: var(--cream); }
+
+  .ingredients-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  .ingredient-list { margin-top: 48px; }
+
+  .ingredient-item {
+    display: flex; align-items: flex-start; gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0; transform: translateX(-20px);
+    transition: all 0.5s ease;
+  }
+  .ingredient-item.visible { opacity: 1; transform: translateX(0); }
+
+  .ingredient-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); margin-top: 6px; flex-shrink: 0;
+  }
+
+  .ingredient-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400;
+    color: var(--charcoal); margin-bottom: 6px;
+  }
+
+  .ingredient-desc {
+    font-size: 14px; font-weight: 300; line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .ingredients-visual {
+    display: flex; align-items: center; justify-content: center;
+    height: 500px;
+    background: var(--warm-white);
+    border-radius: 24px;
+    position: relative; overflow: hidden;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.5;
+  }
+  .orb1 { width: 200px; height: 200px; background: var(--gold); top: 20%; left: 15%; animation: float 6s ease-in-out infinite; }
+  .orb2 { width: 150px; height: 150px; background: var(--sage); bottom: 20%; right: 15%; animation: float 8s ease-in-out infinite reverse; }
+  .orb3 { width: 100px; height: 100px; background: #C0B8D4; top: 55%; left: 50%; animation: float 7s ease-in-out infinite 2s; }
+
+  .center-pill {
+    width: 90px; height: 260px;
+    background: linear-gradient(170deg, #E8D5A8, #C8A96E);
+    border-radius: 100px;
+    box-shadow: 0 30px 80px rgba(200,169,110,0.4);
+    position: relative; z-index: 2;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-16px); }
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--warm-white); text-align: center; }
+
+  .testimonials .section-title { margin: 0 auto 64px; text-align: center; }
+
+  .review-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; max-width: 1100px; margin: 0 auto;
+  }
+
+  .review-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: left;
+    opacity: 0; transform: translateY(24px);
+    transition: all 0.6s ease;
+  }
+  .review-card.visible { opacity: 1; transform: translateY(0); }
+
+  .review-stars { color: var(--gold); font-size: 16px; margin-bottom: 20px; letter-spacing: 2px; }
+
+  .review-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 300; font-style: italic;
+    line-height: 1.6; color: var(--charcoal);
+    margin-bottom: 28px;
+  }
+
+  .review-author { font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0.05em; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    color: rgba(250,248,244,0.5);
+    padding: 80px 48px 40px;
+  }
+
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid rgba(250,248,244,0.1);
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300;
+    color: var(--cream); letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline { font-size: 14px; font-weight: 300; max-width: 260px; line-height: 1.6; }
+
+  .footer-cols { display: flex; gap: 80px; }
+
+  .footer-col h4 {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--cream);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+  .footer-col a { font-size: 14px; font-weight: 300; color: rgba(250,248,244,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-copy { font-size: 13px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    .stats { margin: 0 24px; flex-wrap: wrap; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .steps { grid-template-columns: 1fr; }
+    .product-grid { grid-template-columns: 1fr; }
+    .review-grid { grid-template-columns: 1fr; }
+    .ingredients-grid { grid-template-columns: 1fr; }
+    .footer-top { flex-direction: column; gap: 48px; }
+    .hero-title { font-size: clamp(44px, 12vw, 80px); }
+    .products-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Tailored Vitamins</a>
+  <ul class="nav-links">
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#ingredients">Ingredients</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="#quiz" class="nav-cta">Take the Quiz</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <p class="hero-eyebrow">Precision Wellness, Personalized</p>
+  <h1 class="hero-title">Your body.<br><em>Your formula.</em></h1>
+  <p class="hero-sub">Science-backed vitamins engineered specifically for you — not everyone else.</p>
+  <div class="hero-actions">
+    <a href="#quiz" class="btn-primary">Find My Formula</a>
+    <a href="#how" class="btn-secondary">See how it works</a>
+  </div>
+  <div class="hero-visual">
+    <div class="capsule-row">
+      <div class="capsule c2"></div>
+      <div class="capsule c1"></div>
+      <div class="capsule c3"></div>
+      <div class="capsule c4"></div>
+      <div class="capsule c5"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number">50K+</div>
+    <div class="stat-label">Customers Served</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">200+</div>
+    <div class="stat-label">Active Ingredients</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">97%</div>
+    <div class="stat-label">Report Feeling Better</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <p class="section-eyebrow">The Process</p>
+  <h2 class="section-title">Engineered around you.</h2>
+  <p class="section-body">Three steps stand between you and a formula built only for your biology.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Take the Quiz</div>
+      <div class="step-desc">Answer 5 minutes of science-backed questions about your lifestyle, health goals, and biology.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">We Build Your Pack</div>
+      <div class="step-desc">Our nutritional scientists and algorithms create a formula unique to your profile — down to the dosage.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Delivered Monthly</div>
+      <div class="step-desc">Your personalized daily packs arrive at your door. Adjust anytime as your needs evolve.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header">
+    <div>
+      <p class="section-eyebrow">Curated Collections</p>
+      <h2 class="section-title" style="margin-bottom:0">Start with a foundation.</h2>
+    </div>
+    <a href="#" class="btn-secondary">View all formulas</a>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-img product-bg-immunity">
+        <div class="product-pill pill-immunity"></div>
+      </div>
+      <div class="product-info">
+        <div class="product-tag">Best Seller</div>
+        <div class="product-name">Immunity Shield</div>
+        <div class="product-desc">Zinc, Vitamin C, Elderberry, and D3 in clinical doses that actually move the needle.</div>
+        <div class="product-price">$42 / month</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img product-bg-energy">
+        <div class="product-pill pill-energy"></div>
+      </div>
+      <div class="product-info">
+        <div class="product-tag">Energy</div>
+        <div class="product-name">Peak Energy</div>
+        <div class="product-desc">B-complex, CoQ10, and adaptogenic Ashwagandha for sustained, crash-free energy.</div>
+        <div class="product-price">$46 / month</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img product-bg-calm">
+        <div class="product-pill pill-calm"></div>
+      </div>
+      <div class="product-info">
+        <div class="product-tag">Stress & Sleep</div>
+        <div class="product-name">Deep Calm</div>
+        <div class="product-desc">Magnesium Glycinate, L-Theanine, and Phosphatidylserine for a quieter mind.</div>
+        <div class="product-price">$44 / month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ CTA -->
+<section class="quiz-cta" id="quiz">
+  <p class="section-eyebrow" style="position:relative">Build Yours</p>
+  <h2 class="section-title">Ready for a formula that actually fits?</h2>
+  <p class="section-body">Take our 5-minute wellness quiz and let us build a protocol designed exclusively for your biology.</p>
+  <a href="#" class="btn-primary" style="display:inline-block;position:relative">Start My Quiz →</a>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients" id="ingredients">
+  <div class="ingredients-grid">
+    <div>
+      <p class="section-eyebrow">What's Inside</p>
+      <h2 class="section-title">Nothing hidden. Nothing unnecessary.</h2>
+      <p class="section-body">Every ingredient is third-party tested, clinically dosed, and transparently listed.</p>
+      <div class="ingredient-list">
+        <div class="ingredient-item">
+          <div class="ingredient-dot"></div>
+          <div>
+            <div class="ingredient-name">Vitamin D3 + K2</div>
+            <div class="ingredient-desc">The pair that works together — D3 absorbs calcium, K2 directs it to your bones.</div>
+          </div>
+        </div>
+        <div class="ingredient-item">
+          <div class="ingredient-dot"></div>
+          <div>
+            <div class="ingredient-name">Magnesium Glycinate</div>
+            <div class="ingredient-desc">The most bioavailable form. Supports sleep, muscle recovery, and calm focus.</div>
+          </div>
+        </div>
+        <div class="ingredient-item">
+          <div class="ingredient-dot"></div>
+          <div>
+            <div class="ingredient-name">Omega-3 (EPA/DHA)</div>
+            <div class="ingredient-desc">Ultra-pure, sustainably sourced. Heart, brain, and inflammation support.</div>
+          </div>
+        </div>
+        <div class="ingredient-item">
+          <div class="ingredient-dot"></div>
+          <div>
+            <div class="ingredient-name">Ashwagandha KSM-66®</div>
+            <div class="ingredient-desc">The gold-standard extract. Clinically shown to reduce cortisol and stress.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ingredients-visual">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+      <div class="center-pill"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="testimonials" id="reviews">
+  <p class="section-eyebrow">Real Results</p>
+  <h2 class="section-title">Trusted by those who don't settle.</h2>
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"After years of generic multivitamins, this is the first supplement I've actually felt a difference from."</div>
+      <div class="review-author">— SARAH M., VERIFIED BUYER</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"The quiz was eye-opening. My formula addressed deficiencies I didn't even know I had."</div>
+      <div class="review-author">— JAMES T., VERIFIED BUYER</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Finally a wellness brand that treats me like an individual, not a demographic. Worth every penny."</div>
+      <div class="review-author">— PRIYA K., VERIFIED BUYER</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Tailored Vitamins</div>
+      <div class="footer-tagline">Precision wellness, built around the only body that matters — yours.</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">All Formulas</a></li>
+          <li><a href="#">Immunity</a></li>
+          <li><a href="#">Energy</a></li>
+          <li><a href="#">Sleep & Calm</a></li>
+          <li><a href="#">Bundles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Science</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Subscriptions</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Tailored Vitamins. All rights reserved.</div>
+    <div style="display:flex;gap:24px;font-size:13px;">
+      <a href="#" style="color:rgba(250,248,244,0.4);text-decoration:none;">Privacy</a>
+      <a href="#" style="color:rgba(250,248,244,0.4);text-decoration:none;">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, entry.target.dataset.delay || 0);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.stat, .step, .product-card, .review-card, .ingredient-item').forEach((el, i) => {
+    el.dataset.delay = (i % 3) * 100;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
